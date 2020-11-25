@@ -15,6 +15,12 @@
 		828367A7256D859D004DFF6B /* KnowYourMLA.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 828367A5256D859D004DFF6B /* KnowYourMLA.xcdatamodeld */; };
 		828367A9256D85A1004DFF6B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 828367A8256D85A1004DFF6B /* Assets.xcassets */; };
 		828367AC256D85A1004DFF6B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 828367AA256D85A1004DFF6B /* LaunchScreen.storyboard */; };
+		8298A439256EAD8600E7A564 /* MLACollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8298A438256EAD8500E7A564 /* MLACollectionVC.swift */; };
+		8298A440256EB0AF00E7A564 /* MLACollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8298A43F256EB0AF00E7A564 /* MLACollectionViewCell.swift */; };
+		8298A443256EB1E000E7A564 /* CollectionViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8298A442256EB1E000E7A564 /* CollectionViewExtensions.swift */; };
+		8298A446256EB37C00E7A564 /* MLAData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8298A445256EB37C00E7A564 /* MLAData.swift */; };
+		8298A44A256EB43B00E7A564 /* MLAScraper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8298A449256EB43B00E7A564 /* MLAScraper.swift */; };
+		8298A44D256EBEA200E7A564 /* MLADetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8298A44C256EBEA200E7A564 /* MLADetailVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +34,12 @@
 		828367A8256D85A1004DFF6B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		828367AB256D85A1004DFF6B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		828367AD256D85A1004DFF6B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8298A438256EAD8500E7A564 /* MLACollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLACollectionVC.swift; sourceTree = "<group>"; };
+		8298A43F256EB0AF00E7A564 /* MLACollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLACollectionViewCell.swift; sourceTree = "<group>"; };
+		8298A442256EB1E000E7A564 /* CollectionViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewExtensions.swift; sourceTree = "<group>"; };
+		8298A445256EB37C00E7A564 /* MLAData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLAData.swift; sourceTree = "<group>"; };
+		8298A449256EB43B00E7A564 /* MLAScraper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLAScraper.swift; sourceTree = "<group>"; };
+		8298A44C256EBEA200E7A564 /* MLADetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLADetailVC.swift; sourceTree = "<group>"; };
 		F09FFFC186A83FE5E992966E /* Pods_KnowYourMLA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KnowYourMLA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F760B25BEB85D332D5F7F4F1 /* Pods-KnowYourMLA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnowYourMLA.release.xcconfig"; path = "Target Support Files/Pods-KnowYourMLA/Pods-KnowYourMLA.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -55,7 +67,9 @@
 		824C878B256D99B000013635 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				8298A44F256EBF3A00E7A564 /* MLACollection */,
 				828367A0256D859D004DFF6B /* HomeVC.swift */,
+				8298A44C256EBEA200E7A564 /* MLADetailVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -81,16 +95,52 @@
 		8283679B256D859D004DFF6B /* KnowYourMLA */ = {
 			isa = PBXGroup;
 			children = (
-				824C878B256D99B000013635 /* Controller */,
+				8298A448256EB41400E7A564 /* Network */,
 				8283679C256D859D004DFF6B /* AppDelegate.swift */,
-				8283679E256D859D004DFF6B /* SceneDelegate.swift */,
+				828367AD256D85A1004DFF6B /* Info.plist */,
+				8298A43C256EAF7500E7A564 /* Support Files */,
+				8298A43B256EAEA000E7A564 /* Model */,
+				824C878B256D99B000013635 /* Controller */,
+			);
+			path = KnowYourMLA;
+			sourceTree = "<group>";
+		};
+		8298A43B256EAEA000E7A564 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				828367A5256D859D004DFF6B /* KnowYourMLA.xcdatamodeld */,
+				8298A445256EB37C00E7A564 /* MLAData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8298A43C256EAF7500E7A564 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
 				828367A2256D859D004DFF6B /* Main.storyboard */,
 				828367A8256D85A1004DFF6B /* Assets.xcassets */,
 				828367AA256D85A1004DFF6B /* LaunchScreen.storyboard */,
-				828367AD256D85A1004DFF6B /* Info.plist */,
-				828367A5256D859D004DFF6B /* KnowYourMLA.xcdatamodeld */,
+				8283679E256D859D004DFF6B /* SceneDelegate.swift */,
 			);
-			path = KnowYourMLA;
+			path = "Support Files";
+			sourceTree = "<group>";
+		};
+		8298A448256EB41400E7A564 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				8298A449256EB43B00E7A564 /* MLAScraper.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		8298A44F256EBF3A00E7A564 /* MLACollection */ = {
+			isa = PBXGroup;
+			children = (
+				8298A438256EAD8500E7A564 /* MLACollectionVC.swift */,
+				8298A43F256EB0AF00E7A564 /* MLACollectionViewCell.swift */,
+				8298A442256EB1E000E7A564 /* CollectionViewExtensions.swift */,
+			);
+			path = MLACollection;
 			sourceTree = "<group>";
 		};
 		B6169DD072EF11A5E82AE17F /* Pods */ = {
@@ -216,8 +266,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8298A439256EAD8600E7A564 /* MLACollectionVC.swift in Sources */,
+				8298A44A256EB43B00E7A564 /* MLAScraper.swift in Sources */,
+				8298A440256EB0AF00E7A564 /* MLACollectionViewCell.swift in Sources */,
 				828367A7256D859D004DFF6B /* KnowYourMLA.xcdatamodeld in Sources */,
 				828367A1256D859D004DFF6B /* HomeVC.swift in Sources */,
+				8298A446256EB37C00E7A564 /* MLAData.swift in Sources */,
+				8298A44D256EBEA200E7A564 /* MLADetailVC.swift in Sources */,
+				8298A443256EB1E000E7A564 /* CollectionViewExtensions.swift in Sources */,
 				8283679D256D859D004DFF6B /* AppDelegate.swift in Sources */,
 				8283679F256D859D004DFF6B /* SceneDelegate.swift in Sources */,
 			);
