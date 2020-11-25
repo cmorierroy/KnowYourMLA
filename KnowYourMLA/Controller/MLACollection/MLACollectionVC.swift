@@ -12,11 +12,18 @@ class MLACollectionVC : UIViewController
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    let collectionViewInsets = UIEdgeInsets(top: 3.0,
-                                               left: 3.0,
-                                               bottom: 3.0,
-                                               right: 3.0)
+    let collectionViewInsets = UIEdgeInsets(top: 0.0,
+                                               left: 0.0,
+                                               bottom: 0.0,
+                                               right: 0.0)
     let cellsPerRow: CGFloat = 3
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        collectionView.dataSource = self
+        collectionView.delegate = self
+    }
     
     //MARK: PREPARE FOR SEGUE
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)

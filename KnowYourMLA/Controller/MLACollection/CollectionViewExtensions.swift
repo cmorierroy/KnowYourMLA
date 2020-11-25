@@ -13,22 +13,27 @@ extension MLACollectionVC : UICollectionViewDelegate, UICollectionViewDataSource
 {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
     {
-        return MLAData.members.count //MARK: adjust
+        return MLAData.members.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
     {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! MLACollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "mlaCell", for: indexPath) as! MLACollectionViewCell
 
+        let member = MLAData.members[indexPath.row]
         
-        //cell.imageView?.image = #imageLiteral(resourceName: "AppIcon")
-        //images[indexPath.row]
+        cell.image?.image = #imageLiteral(resourceName: "AppIcon-2")
+        cell.nameLabel?.text = member.name
+        cell.constituencyLabel?.text = member.constituency
+        cell.partyLabel?.text = member.party
+        cell.backgroundColor = MLAData.colorOfParty(party: member.party)
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
     {
+        performSegue(withIdentifier: "toMLADetailVC", sender: nil)
         //selecting an item on the collection view will segue to 
         
         //delete it from view controller

@@ -8,13 +8,15 @@
 import UIKit
 import Charts
 
+//TODO: color theme for app needs to be chosen
+    //launchscreen is brown/gold, but home and other vc's are black — inconsistent
+    //party neutral color theme is preferred
+
+//TODO: tab bar should be customized to match color theme
+
 class HomeVC: UIViewController
 {
     @IBOutlet weak var pieChart: PieChartView!
-    
-    //mock data
-    var parties = [String]()
-    var members = [Int]()
     
     //MARK: Lifecycle Functions
     override func viewDidLoad()

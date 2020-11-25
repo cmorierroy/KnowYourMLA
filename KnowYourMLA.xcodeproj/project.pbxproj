@@ -21,6 +21,7 @@
 		8298A446256EB37C00E7A564 /* MLAData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8298A445256EB37C00E7A564 /* MLAData.swift */; };
 		8298A44A256EB43B00E7A564 /* MLAScraper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8298A449256EB43B00E7A564 /* MLAScraper.swift */; };
 		8298A44D256EBEA200E7A564 /* MLADetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8298A44C256EBEA200E7A564 /* MLADetailVC.swift */; };
+		8298A453256EC97800E7A564 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8298A452256EC97800E7A564 /* Member.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		8298A445256EB37C00E7A564 /* MLAData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLAData.swift; sourceTree = "<group>"; };
 		8298A449256EB43B00E7A564 /* MLAScraper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLAScraper.swift; sourceTree = "<group>"; };
 		8298A44C256EBEA200E7A564 /* MLADetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLADetailVC.swift; sourceTree = "<group>"; };
+		8298A452256EC97800E7A564 /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
 		F09FFFC186A83FE5E992966E /* Pods_KnowYourMLA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KnowYourMLA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F760B25BEB85D332D5F7F4F1 /* Pods-KnowYourMLA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnowYourMLA.release.xcconfig"; path = "Target Support Files/Pods-KnowYourMLA/Pods-KnowYourMLA.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -95,9 +97,9 @@
 		8283679B256D859D004DFF6B /* KnowYourMLA */ = {
 			isa = PBXGroup;
 			children = (
-				8298A448256EB41400E7A564 /* Network */,
-				8283679C256D859D004DFF6B /* AppDelegate.swift */,
 				828367AD256D85A1004DFF6B /* Info.plist */,
+				8283679C256D859D004DFF6B /* AppDelegate.swift */,
+				8298A448256EB41400E7A564 /* Network */,
 				8298A43C256EAF7500E7A564 /* Support Files */,
 				8298A43B256EAEA000E7A564 /* Model */,
 				824C878B256D99B000013635 /* Controller */,
@@ -110,6 +112,7 @@
 			children = (
 				828367A5256D859D004DFF6B /* KnowYourMLA.xcdatamodeld */,
 				8298A445256EB37C00E7A564 /* MLAData.swift */,
+				8298A452256EC97800E7A564 /* Member.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				8298A443256EB1E000E7A564 /* CollectionViewExtensions.swift in Sources */,
 				8283679D256D859D004DFF6B /* AppDelegate.swift in Sources */,
 				8283679F256D859D004DFF6B /* SceneDelegate.swift in Sources */,
+				8298A453256EC97800E7A564 /* Member.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

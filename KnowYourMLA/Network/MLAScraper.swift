@@ -39,6 +39,43 @@ class MLAScraper
             let tables = doc.css("table")
             
             //parse members table
+            let membersCells = tables[0].css("td")
+            for index in stride(from: 0, to: membersCells.count, by: 3)
+            {
+                //get constituency from cell
+                let constituency = membersCells[index].text ?? ""
+                
+                //get names from cell
+                let separatedNames = (membersCells[index+1].text ?? "").split(separator: ",")
+                
+                //process last name
+                let lastName = String(separatedNames[0]).lowercased().capitalized.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+                
+                //process first name
+                let separatedFirstName = separatedNames[1].split(separator: ".")
+                var firstName:String
+                var isMinister:Bool = false
+                
+                if separatedFirstName.count > 1
+                {
+                    //if the member is a minister (has 'Hon.' in name)
+                    firstName = separatedFirstName[1].trimmingCharacters(in:CharacterSet.whitespacesAndNewlines)
+                    isMinister = true
+                }
+                else
+                {
+                    firstName = separatedFirstName[0].trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+                }
+                
+                //get party from cell
+                let party = membersCells[index+2].text ?? ""
+                
+                //append member
+                let member = Member(firstName: firstName, lastName: lastName, constituency: constituency, party: party, isMinister:isMinister)
+                print(member.toString() + "\n")
+                MLAData.members.append(member)
+                
+            }
             
             //parse totals table
             let totalsTable = tables[1]
