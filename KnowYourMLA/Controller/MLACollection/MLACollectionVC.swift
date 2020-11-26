@@ -16,7 +16,7 @@ class MLACollectionVC : UIViewController
                                                left: 0.0,
                                                bottom: 0.0,
                                                right: 0.0)
-    let cellsPerRow: CGFloat = 3
+    let cellsPerRow: CGFloat = 2
     
     override func viewDidLoad() {
         super.viewDidLoad()

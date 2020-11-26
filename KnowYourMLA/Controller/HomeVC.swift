@@ -24,11 +24,16 @@ class HomeVC: UIViewController
         super.viewDidLoad()
         
         //scrape web data
-        MLAScraper.scrape()
+        MLAScraper.scrapeMembersList()
         {
             //add scraped data to chart
             self.customizeChart(dataPoints:MLAData.parties, values: MLAData.partyCounts)
             self.pieChart.animate(xAxisDuration: 1, yAxisDuration: 1)
+            
+            MLAScraper.scrapePhotos()
+            {
+                print("Got pictures!")
+            }
         }
     }
     

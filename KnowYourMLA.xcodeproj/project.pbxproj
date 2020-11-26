@@ -69,8 +69,8 @@
 		824C878B256D99B000013635 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				8298A44F256EBF3A00E7A564 /* MLACollection */,
 				828367A0256D859D004DFF6B /* HomeVC.swift */,
+				8298A44F256EBF3A00E7A564 /* MLACollection */,
 				8298A44C256EBEA200E7A564 /* MLADetailVC.swift */,
 			);
 			path = Controller;

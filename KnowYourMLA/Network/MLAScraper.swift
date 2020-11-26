@@ -11,25 +11,106 @@ import Kanna
 
 class MLAScraper
 {
-    //Endpoint
-    static let MembersEndpoint = "https://www.gov.mb.ca/legislature/members/mla_list_constituency.html"
-    
-    class func scrape(completion: @escaping () -> Void)
+    //MARK: Endpoints
+    enum Endpoints
     {
-        AF.request(MembersEndpoint).response
+        static let base = "https://www.gov.mb.ca/legislature"
+        static let members = "/members"
+        
+        case getMembersListByConstituency
+        case getMemberInfo(String)
+        case getMemberPhoto(String)
+        
+        var stringValue: String
+        {
+            switch self
+            {
+            case .getMembersListByConstituency: return Endpoints.base + Endpoints.members + "/mla_list_constituency.html"
+            case .getMemberInfo(let lastName): return Endpoints.base + Endpoints.members + "/info/\(replaceDiacritics(text: lastName)).html" //really janky way to avoid a bug, but this should be adjusted to replace any diacritic
+            case .getMemberPhoto(let lastName): return "https://www.gov.mb.ca/legislature/img/mla/\(replaceDiacritics(text: lastName)).jpg"
+            }
+            
+        }
+        
+        var url: URL
+        {
+            return URL(string: stringValue)!
+        }
+    }
+    
+    class func replaceDiacritics(text:String) -> String
+    {
+        //for lowercase letters only
+        let alphabet = ["a","c","e","i","o","u"]
+        
+        let aDiacritics = ["à","á","â","ä"]
+        let cDiacritics = ["ç"]
+        let eDiacritics = ["è","é","ê","ë"]
+        let iDiacritics = ["î","ï"]
+        let oDiacritics = ["ô","ö"]
+        let uDiacritics = ["û","ü"]
+    
+        var diacriticsList:[[String]] = []
+        diacriticsList.append(aDiacritics)
+        diacriticsList.append(cDiacritics)
+        diacriticsList.append(eDiacritics)
+        diacriticsList.append(iDiacritics)
+        diacriticsList.append(oDiacritics)
+        diacriticsList.append(uDiacritics)
+        
+        var newText = text
+        for arrayIndex in 0..<diacriticsList.count
+        {
+            for diacritic in diacriticsList[arrayIndex]
+            {
+                newText = newText.replacingOccurrences(of: diacritic, with: alphabet[arrayIndex])
+            }
+        }
+        
+        return newText
+    }
+    
+    class func scrapeMembersList(completion: @escaping () -> Void)
+    {
+        AF.request(Endpoints.getMembersListByConstituency.url).response
         {
             response in
             if let data = response.data
             {
                 let dataString = String(decoding: data, as: UTF8.self )
-                self.parseHTML(html: dataString)
+                self.parseMemberList(html: dataString)
                 completion()
             }
         }
-        
     }
     
-    class func parseHTML(html: String)
+    class func scrapePhotos(completion: @escaping () -> Void)
+    {
+        var url:URL
+        for i in 0..<MLAData.members.count
+        {
+            url = Endpoints.getMemberPhoto(MLAData.members[i].lastName.lowercased()).url
+            AF.request(url).response
+            {
+                response in
+                if let data = response.data
+                {
+                    MLAData.members[i].image =  UIImage(data: data) ?? UIImage()
+//                    let dataString = String(decoding: data, as: UTF8.self )
+//                    self.parseMemberPhoto(html: dataString)
+                    completion()
+                }
+            }
+
+//            let data = try? Data(contentsOf: url)
+//            MLAData.members[i].image =  UIImage(data: data!) ?? UIImage()
+        }
+        
+//        print(url)
+    }
+    
+    //MARK: PARSING FUNCTIONS
+    class func parseMemberList(html: String)
     {
         let doc = try? Kanna.HTML(html: html, encoding: String.Encoding.utf8)
         
@@ -72,7 +153,7 @@ class MLAScraper
                 
                 //append member
                 let member = Member(firstName: firstName, lastName: lastName, constituency: constituency, party: party, isMinister:isMinister)
-                print(member.toString() + "\n")
+                //print(member.toString() + "\n")
                 MLAData.members.append(member)
                 
             }
@@ -104,6 +185,23 @@ class MLAScraper
             {
                 MLAData.totalSeats += Int(total)
             }
+        }
+    }
+    
+    class func parseMemberPhoto(html:String)
+    {
+        let doc = try? Kanna.HTML(html: html, encoding: String.Encoding.utf8)
+        
+        if let doc = doc
+        {
+            //get all <table> elements
+            let pictureElement = doc.css("img")
+            
+            print(pictureElement[6].toHTML)
+            
+            //parse members table
+            //let membersCells = tables[0].css("td")
+            
         }
     }
 }

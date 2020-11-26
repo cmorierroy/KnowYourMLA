@@ -1,6 +1,11 @@
 {
   "images" : [
     {
+      "filename" : "AppIcon.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
       "filename" : "KYMSplashpng.png",
       "idiom" : "universal",
       "scale" : "1x"

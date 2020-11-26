@@ -6,14 +6,15 @@
 //
 
 import Foundation
-
-class Member
+import UIKit
+class Member : CustomStringConvertible
 {
     let firstName:String
     let lastName:String
-    let constituency:String
-    let party:String
-    let isMinister:Bool
+    var constituency:String
+    var party:String
+    var isMinister:Bool
+    var image:UIImage
     
     var name:String
     {
@@ -27,9 +28,10 @@ class Member
         self.constituency = constituency
         self.party = party
         self.isMinister = isMinister
+        image = UIImage()
     }
     
-    func toString() -> String
+    var description: String
     {
         return "Name: \(name)\nConstituency: \(constituency)\nParty: \(party)"
     }
