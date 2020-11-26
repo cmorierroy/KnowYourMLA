@@ -31,6 +31,11 @@ class MLAData
         {
             partyColor = CGColor(red: 1.0, green: 0, blue: 0, alpha: 1.0)
         }
+        else
+        {
+            //not a known party for now, set white
+            partyColor = CGColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        }
         
         return partyColor
     }
