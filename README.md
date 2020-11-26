@@ -4,7 +4,6 @@ It is an attempt at making information about Manitoban MLA's very accessible. <b
 
 Current features are simple:
 <li>A pie chart of current legislative assembly constitution by party</li>
-<li>A pie chart of current legislative assembly constitution by party</li>
 <li>A page where users can scroll and select an MLA</li>
 <li>An MLA details page once the MLA is selected</li>
 
