@@ -1,5 +1,7 @@
 # KnowYourMLA
 I conceived and designed this app for my final project in the Udacity iOS Developer course. <br>
+I was hoping web scraping would be enough to meet passing requirements, but I needed API interaction, so I will be completing this project once I pass the iOS developer nanodegree.<br>
+
 It is an attempt at making information about Manitoban MLA's(Members of Legislative Assembly) very accessible, instead of digging through a government website. <br>
 
 Current features are simple:
